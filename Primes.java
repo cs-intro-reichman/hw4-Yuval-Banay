@@ -11,7 +11,7 @@ public class Primes {
             isPrime[i] = true;
         }
         // if a number is a prime it the number's index in the array will be true
-        for (int i = 2; i <= (int) Math.sqrt(n + 1); i++) {
+        for (int i = 2; i < n + 1; i++) {
                 if (isPrime[i]) {
                     for (int j = 2; j <= (n + 1) / i; j++) {
                         isPrime[i * j] = false;
