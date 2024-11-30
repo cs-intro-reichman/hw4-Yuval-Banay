@@ -16,10 +16,10 @@ public class MyString {
         System.out.println(contains("resignation", "sign")); // true
 
         System.out.println(contains("baba yaga", "baba")); // true
-        System.out.println(contains("baba yaga", "")); // false
+        System.out.println(contains("baba yaga", "")); // true
         System.out.println(contains("baba yaga", "John Wick is the baba yaga")); // false
         System.out.println(contains("baba yaga", "Yaga")); // false
-        System.out.println(contains("baba yaga", "babayaga")); // true
+        System.out.println(contains("Our product will transform the market", "transform")); // true
     }
 
     /** Returns the lowercase version of the given string. */
@@ -31,17 +31,18 @@ public class MyString {
     public static boolean contains(String str1, String str2) {
         if (str2.length() == 0) return true;
 
-        int counter = 0;
-        for (int i = 0; i < str1.length(); i++) {
+        for (int i = 0; i <= str1.length() - str2.length(); i++) {
+            boolean match = true;
             if (str1.charAt(i) == str2.charAt(0)) {
                 for (int j = i; j < str2.length() + i; j++) {
-                    if (str1.charAt(j) == str2.charAt(j - i)) {
-                        counter++;
+                    if (str1.charAt(j) != str2.charAt(j - i)) {
+                        match = false;
+                        break;
                     } 
                 } 
-                break;
+                if (match) return true;
             }
         }
-        return counter == str2.length() ? true : false;
+        return false;
     }
 }
