@@ -24,7 +24,16 @@ public class MyString {
 
     /** Returns the lowercase version of the given string. */
     public static String lowerCase(String str) {
-        return str.toLowerCase();
+        String newStr = "";
+        for (int i = 0; i < str.length(); i++) {
+            char c = str.charAt(i);
+            if ((c >= 'A') && (c <= 'Z')) {
+                newStr += (char) (c + 32);
+            } else {
+                newStr += c;
+            }
+        }
+        return newStr;
     }
 
     /** If str1 contains str2, returns true; otherwise returns false. */
